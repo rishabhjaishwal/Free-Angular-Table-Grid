@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <!-- Action for table Section Start-->
+  <div class="row">
+    <div class="col-lg-10 col-md-10 form-box">
+      <div class="form-align">
+        <form class="form-inline" >
+          <label for="chooseAttr">Choose Attribute</label>
+          &nbsp;&nbsp;
+          <select name="item_master" class="custom-select wd-130">
+              <option selected class="pd-2">Item Master</option>
+            </select>&nbsp;&nbsp;&nbsp;
+            <select name="bulk" class="custom-select wd-130">
+                <option selected class="pd-2">Bulk</option>
+              </select>&nbsp;&nbsp;&nbsp;
+              <select name="add" class="custom-select wd-130">
+                  <option selected class="pd-2">Add</option>
+                </select>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-sm btn-red wd-130">SUBMIT</button>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-sm btn-black wd-130">UPLOAD</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Action for table Section End -->
+
+  <!-- TABLE Section start Here -->
+  <div class="row md-t">
+    <div class="col-lg-12 col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr >
+                <ng-container *ngFor="let header_item of keys(jsonData[0]);let i = index;">
+                    <th>
+                      <i class="fas fa-sort float-l pointer" [id]="header_item+'_sort'" (click)="sort(header_item)"></i>
+                      <span class="header-txt ">{{header_item}}</span>
+                      <i class="fas fa-filter float-r pointer" [id]="header_item+'_filter'" (click)="dropDownOpen(header_item+'_filterpopup')"></i>
+                      <!-- Filter pop up Start -->
+                      <div class="filter_popup" [id]="header_item+'_filterpopup'"  >
+                        <div class="scroll-y">
+                        <ng-container *ngFor="let item of JsonColumn[header_item]">
+                            <mat-checkbox [id]="header_item+item" class="disp-block" (click)="$event.stopPropagation()" [value]="item"
+                            (change)="$event ? ColumnSelectionData.toggle(header_item+'*'+item) : null" [checked]="ColumnSelectionData.isSelected(header_item+'*'+item)"
+                            >
+                              {{item}}
+                            </mat-checkbox>
+                        </ng-container>  
+                      </div>
+                      <hr>
+                      <span class="flt-rt">
+                          <button  class="btn btn-sm btn-red " (click)='ApplyFilter()'>Apply</button>&nbsp;&nbsp;
+                          <button  class="btn btn-sm btn-outline-secondary" (click)='resetSelectedFilter(header_item)'>Reset</button>&nbsp;&nbsp;
+                      </span>
+                        </div>
+                      <!-- Filter pop up End -->
+                    </th>
+                  </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let jsonitem of pushedData;let i = index;">
+                <ng-container *ngFor="let header_item of keys(jsonData[0])">
+                    <td  contenteditable='false' [id]="jsonitem['Reference']+header_item">
+                        {{jsonitem[header_item]}}
+                      </td>
+                </ng-container>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+  </div>
+  <!-- TABLE Section End Here -->
+</div>
+
+
+

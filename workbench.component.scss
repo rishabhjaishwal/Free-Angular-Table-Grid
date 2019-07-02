@@ -1,0 +1,92 @@
+.pd-2 {
+    padding: 2px;
+}
+
+.btn-red {
+    background: #ff4049;
+    color: white;
+}
+
+.btn-black {
+    background: #474242;
+    color: white;
+}
+
+.wd-130 {
+    width: 130px;
+}
+
+.form-box {
+    border: 1px solid lightgray;
+    // padding-left: 95px;
+    border-radius: 7px;
+    background: #f4f4f4;
+    padding-top: 30px;
+    margin-left: calc(100% / 12);
+    margin-top: 5px;
+    padding-bottom: 30px;
+}
+
+.form-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.md-t {
+    margin-top: 10px;
+}
+
+.float-r {
+    float: right;
+}
+
+.float-l {
+    float: left;
+}
+
+.header-txt {
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+.filter_popup {
+    background: white;
+    width: 250px;
+    max-height: 300px;
+    color: #757171;
+    position: absolute;
+    display: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 1px 1px 5px lightgrey;
+    border-radius: 5px;
+}
+
+.disp-block {
+    display: block !important;
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.flt-rt {
+    float:right;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.editableCell {
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.editableCell:focus {
+    border: none;
+}
