@@ -1,0 +1,227 @@
+.pd-2 {
+    padding: 2px;
+}
+
+.btn-red {
+    background: #ff4049;
+    color: white;
+}
+
+.btn-black {
+    background: #474242;
+    color: white;
+}
+
+.wd-130 {
+    width: 130px;
+}
+
+.form-box {
+    border: 1px solid lightgray;
+    // padding-left: 95px;
+    border-radius: 7px;
+    background: #f4f4f4;
+    padding-top: 18px;
+    margin-left: calc(100% / 12);
+    margin-top: 5px;
+    padding-bottom: 18px;
+}
+
+.form-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.md-t {
+    margin-top: 10px;
+}
+
+.float-r {
+    float: right;
+}
+
+.float-l {
+    float: left;
+}
+
+.header-txt {
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+.filter_popup {
+    background: white;
+    width: 250px;
+    color: #757171;
+    position: absolute;
+    display: none;
+    padding-left: 5px;
+    z-index: 2;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 1px 1px 5px lightgrey;
+    border-radius: 5px;
+}
+
+.disp-block {
+    display: block !important;
+    width: 100%;
+}
+
+.scroll-y {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.scroll-y:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.flt-rt {
+    float:right;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.editableCell  .editableData{
+    border: 1px solid #ee3441;
+    border-radius: 5px;
+}
+
+.editableCell:focus {
+    border: none;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.margin-balance {
+    margin-top: -1rem;
+}
+
+.pd-10 {
+    padding: 10px;
+}
+
+.bd-lrb {
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.mg-r-10 {
+    margin-right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(141, 140, 140); 
+  }
+
+
+  .auto_completebox {
+    display: none;
+    // height: 200px;
+    background-color: white;
+    position: absolute !important;
+    z-index: 2;
+    margin-top: 3px;
+    max-height: 300px;
+    color: #4a4848;
+    box-shadow: 1px 1px 5px lightgrey;
+    border-radius: 5px;
+  }
+
+  .listhover:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+
+  .editableData {
+      width: 100%;
+      height: 100%;
+  }
+
+  .mg-b-0 {
+      margin-bottom: 0px;
+  }
+
+  .color-red {
+      color: #ee3441;
+  }
+
+  .font-size-14 {
+      font-size: 14px;
+      color: #686767;
+  }
+
+
+  cdk-virtual-scroll-viewport { height:400px;width: 100%; }
+
+  .mat-sort-header-container {
+    align-items: center;
+  }
+
+  .min-height-400 {
+      min-height: 320px;
+      overflow-x:auto;
+  }
+
+  .label-head {
+      font-weight: bold;
+      color: #565454;
+  }
+
+  .color-red {
+      color: #ee3441;
+  }
+
+  .resetpadding {
+      padding: 0px !important;
+  }
+
+  .resetpaddinghide {
+      padding-right: 0px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+  .color-yellow {
+    color: #eeb524 !important;
+  }
+
+  .pd-3px {
+    padding: 3px;
+  }
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #fafbfd;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #ecf1f5;
+}

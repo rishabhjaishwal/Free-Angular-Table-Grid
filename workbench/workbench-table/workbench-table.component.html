@@ -1,0 +1,64 @@
+<!-- TABLE Section start Here -->
+<div class="row md-t">
+  <div class="col-lg-12 col-md-12 min-height-400 table-responsive">
+    <!-- introducing virtual scrolling here  -->
+      <!-- <cdk-virtual-scroll-viewport #scrollViewport [itemSize]="30"> -->
+
+      <table  class="table table-borderless table-striped" >
+          <thead class="thead-dark"  >
+            <tr >
+              <ng-container *ngFor="let header_item of keys(jsonData[0]);let i = index;">
+                  <th>
+                    <i class="fas fa-sort float-l pointer pd-3px" [id]="header_item+'_sort'" *ngIf="!noSort?.includes(header_item)" (click)="sort(header_item)"></i>
+                    <span class="header-txt ">{{header_item}}</span>
+                    <i class="fas fa-filter float-r pointer pd-3px" [ngClass]="{'color-yellow': filterStatus[header_item] }" [id]="header_item+'_filter'" *ngIf="!noFilter?.includes(header_item)" (click)="dropDownOpen(header_item+'_filterpopup')"></i>
+                    <!-- Filter pop up Start -->
+                    <div class="filter_popup" *ngIf="!noFilter?.includes(header_item)" [id]="header_item+'_filterpopup'"  >
+                      <div class="scroll-y">
+                      <ng-container *ngFor="let item of JsonColumn[header_item]">
+                          <mat-checkbox [id]="header_item+item" class="disp-block" (click)="$event.stopPropagation()" [value]="item"
+                          (change)="$event ? ColumnSelectionData.toggle(header_item+'*'+item) : null" [checked]="ColumnSelectionData.isSelected(header_item+'*'+item)"
+                          >
+                            {{item}}
+                          </mat-checkbox>
+                      </ng-container>  
+                    </div>
+                    
+                    <span class="flt-rt">
+                        <button  class="btn btn-sm btn-red " (click)='ApplyFilter()'>Apply</button>&nbsp;&nbsp;
+                        <button  class="btn btn-sm btn-outline-secondary" (click)='resetSelectedFilter(header_item)'>Reset</button>&nbsp;&nbsp;
+                    </span>
+                      </div>
+                    <!-- Filter pop up End -->
+                   
+                  </th>
+                </ng-container>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let jsonitem of pushedData;let i = index;">
+              <ng-container *ngFor="let header_item of keys(jsonData[0])">
+                  <td  contenteditable='false'  [id]="jsonitem[PrimaryKey]+'_'+header_item" >
+                      <div class="editableData" *ngIf="header_item !== 'Flag'" [id]="jsonitem[PrimaryKey]+'_'+header_item+'span'" (keyup)="enableAutoComplete($event,jsonitem[PrimaryKey]+'_'+header_item+'auto_complete',jsonitem[PrimaryKey]+'_'+header_item)" 
+                      (blur)="disableAutoComplete(jsonitem[PrimaryKey]+'_'+header_item,jsonitem[PrimaryKey]+'_'+header_item+'auto_complete')"
+                      >{{jsonitem[header_item]}}</div>
+                    <!-- <input type="text" class="editableData form-control" [value]="jsonitem[header_item]" *ngIf="header_item !== 'Flag'" [id]="jsonitem['Reference']+header_item+'span'"> -->
+                      <i class="fas fa-flag color-red" *ngIf="header_item == 'Flag' && jsonitem[header_item] == true"></i>
+                      <div  [id]="jsonitem[PrimaryKey]+'_'+header_item+'auto_complete'" class="auto_completebox" >
+                        <ng-container *ngFor="let suggest of Suggestion;let i= index;">
+                        <span class="disp-block pd-10 listhover" [id]="jsonitem[PrimaryKey]+'_'+header_item+i" contenteditable='false' (click)="SelectSuggestion($event,jsonitem[PrimaryKey]+'_'+header_item,jsonitem[PrimaryKey]+'_'+header_item+'auto_complete')">{{suggest}}</span>
+                        </ng-container>
+                      </div>
+                    </td>
+              </ng-container>
+            </tr>
+      
+            
+          </tbody>
+        
+        </table>
+      <!-- </cdk-virtual-scroll-viewport> -->
+  </div>
+</div>
+<!-- TABLE Section End Here -->
